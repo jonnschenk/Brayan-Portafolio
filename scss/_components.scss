@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-body;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-label;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color $transition-hover;
+
+    &--main {
+        background-color: $color-accent;
+        color: $color-black;
+        border-radius: $radius-sm;
+        padding: 4px $spacing-sm;
+        border: 2px solid transparent;
+
+        &:hover {
+            background-color: $color-accent-hover;
+            border-color: $color-accent;
+        }
+    }
+}

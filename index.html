@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brayan Ramírez | Portafolio</title>
+    <meta name="description" content="Portafolio de Brayan Ramírez, Product designer">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Rubik+Wet+Paint&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+    <div class="viewport-container">
+        <div class="page-wrapper">
+            <header class="site-header">
+                <div class="site-header__left"></div>
+                <div class="site-header__right">
+                    <div class="site-header__social">
+                        <a class="site-header__icon" href="https://www.linkedin.com/in/brayan-ramírez/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <img src="assets/icons/logo/Vector1.svg">
+                        </a>
+                        <a class="site-header__icon" href="mailto:martinezbrayanramirez28@gmail.com" aria-label="Email">
+                            <img src="assets/icons/logo/Vector2.svg" alt="Email">
+                        </a>
+                    </div>
+                    <span class="site-header__divider" aria-hidden="true"></span>
+                    <a class="btn btn--main site-header__cta" href="#" download>Download CV</a>
+                </div>
+            </header>
+
+            <section class="hero">
+                <h1 class="hero__title">
+                    <span class="hero__word">
+                        <span class="hero__letter" style="--letter-index:0">B</span>
+                        <span class="hero__letter" style="--letter-index:1">r</span>
+                        <span class="hero__letter" style="--letter-index:2">a</span>
+                        <span class="hero__letter" style="--letter-index:3">y</span>
+                        <span class="hero__letter" style="--letter-index:4">a</span>
+                        <span class="hero__letter" style="--letter-index:5">n</span>
+                    </span>
+                    <span class="hero__word">
+                        <span class="hero__letter" style="--letter-index:6">R</span>
+                        <span class="hero__letter" style="--letter-index:7">a</span>
+                        <span class="hero__letter hero__letter--auto" style="--letter-index:8">m</span>
+                        <span class="hero__letter hero__letter--narrow" style="--letter-index:9">í</span>
+                        <span class="hero__letter" style="--letter-index:10">r</span>
+                        <span class="hero__letter" style="--letter-index:11">e</span>
+                        <span class="hero__letter" style="--letter-index:12">z</span>
+                    </span>
+                </h1>
+
+                <section class="carousel">
+                    <div class="carousel__blob-base" aria-hidden="true"></div>
+                    <div class="carousel__blob-pulse" aria-hidden="true"></div>
+
+                    <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Sección anterior">
+                        <svg class="carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+
+                    <div class="carousel__track">
+                        <a class="carousel__card" data-index="0">
+                            <img class="carousel__card-illustration" src="assets/illustrations/about.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="1">
+                            <img class="carousel__card-illustration" src="assets/illustrations/project.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="2">
+                            <img class="carousel__card-illustration" src="assets/illustrations/ecosystem.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="3">
+                            <img class="carousel__card-illustration" src="assets/illustrations/design.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="4">
+                            <img class="carousel__card-illustration" src="assets/illustrations/impact.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="5">
+                            <img class="carousel__card-illustration" src="assets/illustrations/UX.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="carousel__card" data-index="6">
+                            <img class="carousel__card-illustration" src="assets/illustrations/contact.svg" alt="" aria-hidden="true">
+                        </a>
+                    </div>
+
+                    <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Siguiente sección">
+                        <svg class="carousel__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+
+                    <a class="btn btn--main carousel__label"></a>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/carousel.js"></script>
+    <script src="scripts/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

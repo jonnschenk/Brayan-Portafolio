@@ -1,0 +1,27 @@
+<svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_27_568)">
+<path d="M220 0H0V260H220V0Z" fill="#0F0F0E"/>
+<path opacity="0.55" d="M20.0002 35C80.0002 15 140 16.6666 200 40C213.334 100 211.667 156.667 195 210C138.334 233.333 81.6669 233.333 25.0002 210C8.33355 150 6.66688 91.6666 20.0002 35Z" fill="#F9CBFF"/>
+<path d="M110 145C90 120 55 125 55 155C55 185 95 205 110 220C125 205 165 185 165 155C165 125 130 120 110 145Z" fill="#C6B5F0" stroke="#0F0F0E" stroke-width="4" stroke-linejoin="round"/>
+<path d="M45 100C51.6667 83.3333 63.3333 75 80 75C85.3333 75 89.3333 77 92 81" stroke="#0F0F0E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M175 100C168.333 83.3333 156.667 75 140 75C134.667 75 130.667 77 128 81" stroke="#0F0F0E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 165C25 175 23.3333 186.667 30 200C35.3333 210 43.6667 214 55 212" stroke="#0F0F0E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M185 165C195 175 196.667 186.667 190 200C184.667 210 176.333 214 165 212" stroke="#0F0F0E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M45 82C51.6274 82 57 76.6274 57 70C57 63.3726 51.6274 58 45 58C38.3726 58 33 63.3726 33 70C33 76.6274 38.3726 82 45 82Z" fill="#0B4650"/>
+<path d="M175 82C181.627 82 187 76.6274 187 70C187 63.3726 181.627 58 175 58C168.373 58 163 63.3726 163 70C163 76.6274 168.373 82 175 82Z" fill="#0B4650"/>
+<path d="M30 215C35.5228 215 40 210.523 40 205C40 199.477 35.5228 195 30 195C24.4772 195 20 199.477 20 205C20 210.523 24.4772 215 30 215Z" fill="#0F0F0E"/>
+<path d="M190 215C195.523 215 200 210.523 200 205C200 199.477 195.523 195 190 195C184.477 195 180 199.477 180 205C180 210.523 184.477 215 190 215Z" fill="#0F0F0E"/>
+<path d="M110 60V74V60ZM103 67H117H103Z" fill="#0F0F0E"/>
+<path d="M110 60V74M103 67H117" stroke="#0F0F0E" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M60 235L65 240L60 235ZM60 240L65 235L60 240Z" fill="#0F0F0E"/>
+<path d="M60 235L65 240M60 240L65 235" stroke="#0F0F0E" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M160 235L165 240L160 235ZM160 240L165 235L160 240Z" fill="#0F0F0E"/>
+<path d="M160 235L165 240M160 240L165 235" stroke="#0F0F0E" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M110 190C112.761 190 115 187.761 115 185C115 182.239 112.761 180 110 180C107.239 180 105 182.239 105 185C105 187.761 107.239 190 110 190Z" fill="#0F0F0E"/>
+</g>
+<defs>
+<clipPath id="clip0_27_568">
+<rect width="220" height="260" fill="white"/>
+</clipPath>
+</defs>
+</svg>
