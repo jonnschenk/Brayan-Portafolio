@@ -73,20 +73,20 @@
 
     &__blob-base {
         position: absolute;
-        top: calc(100% - 101px);
+        top: calc(100% - 70px);
         left: 50%;
-        width: 360px;
-        height: 360px;
+        width: 300px;
+        height: 300px;
         transform: translate(-50%, -50%);
         border-radius: $radius-full;
-        border: 2px dashed rgba($color-lavender, 0.5);
+        border: 3px dashed rgba($color-lavender, 0.9);
         z-index: 0;
         pointer-events: none;
     }
 
     &__blob-pulse {
         position: absolute;
-        top: calc(100% - 101px);
+        top: calc(100% - 70px);
         left: 50%;
         width: 268px;
         height: 270px;
@@ -137,7 +137,12 @@
             height: 318px;
             margin-left: -129px;
             bottom: 80px;
-            cursor: default;
+            cursor: pointer;
+
+            &:hover {
+                outline: 3px solid $color-accent;
+                outline-offset: 0;
+            }
         }
     }
 
@@ -202,10 +207,23 @@
         transform: translateX(-50%);
         z-index: 15;
         opacity: 1;
+        font-size: $font-size-label-lg;
+        padding: 5px $spacing-md;
+        border-radius: $radius-full;
         transition: opacity $transition-navigation;
 
         &--hidden {
             opacity: 0;
         }
+    }
+
+    &:has(&__label:hover) &__card--active {
+        outline: 3px solid $color-accent;
+        outline-offset: 0;
+    }
+
+    &:has(&__card--active:hover) &__label {
+        background-color: $color-accent-hover;
+        border-color: $color-accent;
     }
 }

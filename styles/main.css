@@ -99,13 +99,22 @@ body {
 }
 
 .site-header {
+  position: relative;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #F8F8F1;
   padding: 0 32px;
-  border-bottom: 1px solid #C5C5C5;
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 0;
+  height: 1px;
+  background-color: #C5C5C5;
 }
 .site-header__left {
   display: flex;
@@ -214,19 +223,19 @@ body {
 }
 .carousel__blob-base {
   position: absolute;
-  top: calc(100% - 101px);
+  top: calc(100% - 70px);
   left: 50%;
-  width: 360px;
-  height: 360px;
+  width: 300px;
+  height: 300px;
   transform: translate(-50%, -50%);
   border-radius: 999px;
-  border: 2px dashed rgba(198, 181, 240, 0.5);
+  border: 3px dashed rgba(198, 181, 240, 0.9);
   z-index: 0;
   pointer-events: none;
 }
 .carousel__blob-pulse {
   position: absolute;
-  top: calc(100% - 101px);
+  top: calc(100% - 70px);
   left: 50%;
   width: 268px;
   height: 270px;
@@ -274,7 +283,11 @@ body {
   height: 318px;
   margin-left: -129px;
   bottom: 80px;
-  cursor: default;
+  cursor: pointer;
+}
+.carousel__card--active:hover {
+  outline: 3px solid #B2F00D;
+  outline-offset: 0;
 }
 .carousel__card-illustration {
   position: absolute;
@@ -330,10 +343,21 @@ body {
   transform: translateX(-50%);
   z-index: 15;
   opacity: 1;
+  font-size: 24px;
+  padding: 5px 24px;
+  border-radius: 999px;
   transition: opacity 0.3s ease-out;
 }
 .carousel__label--hidden {
   opacity: 0;
+}
+.carousel:has(.carousel__label:hover) .carousel__card--active {
+  outline: 3px solid #B2F00D;
+  outline-offset: 0;
+}
+.carousel:has(.carousel__card--active:hover) .carousel__label {
+  background-color: #96C123;
+  border-color: #B2F00D;
 }
 
 /*# sourceMappingURL=main.css.map */

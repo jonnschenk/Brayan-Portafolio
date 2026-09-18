@@ -16,19 +16,22 @@
     const prevBtn = carousel.querySelector('.carousel__arrow--prev');
     const nextBtn = carousel.querySelector('.carousel__arrow--next');
     const label = carousel.querySelector('.carousel__label');
+    const labelText = label.querySelector('.carousel__label-text');
     const pageWrapper = document.querySelector('.page-wrapper');
     const total = cards.length;
     const NAVIGATION_DELAY = 300;
     const ROTATION_BY_LEVEL = { 0: 0, 1: 29.98, 2: 58.64, 3: 90 };
     const CAROUSEL_DURATION = 1100;
     const LABEL_FADE = 300;
+    const AUTOPLAY_INTERVAL = 4000;
 
     let activeIndex = 3;
     let labelSwapTimeout = null;
+    let autoplayTimer = null;
 
     function setLabel() {
         const active = sections[activeIndex];
-        label.textContent = active.name;
+        labelText.textContent = active.name;
         label.setAttribute('href', active.href);
     }
 
@@ -73,6 +76,15 @@
         render(true);
     }
 
+    function startAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = setInterval(() => goTo(activeIndex + 1), AUTOPLAY_INTERVAL);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayTimer);
+    }
+
     function navigateTo(href) {
         if (!pageWrapper) {
             window.location.href = href;
@@ -84,8 +96,14 @@
         }, NAVIGATION_DELAY);
     }
 
-    prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
-    nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
+    prevBtn.addEventListener('click', () => {
+        goTo(activeIndex - 1);
+        startAutoplay();
+    });
+    nextBtn.addEventListener('click', () => {
+        goTo(activeIndex + 1);
+        startAutoplay();
+    });
 
     cards.forEach((card) => {
         card.addEventListener('click', (event) => {
@@ -96,9 +114,13 @@
                 navigateTo(sections[index].href);
             } else {
                 goTo(index);
+                startAutoplay();
             }
         });
     });
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
 
     label.addEventListener('click', (event) => {
         event.preventDefault();
@@ -106,6 +128,7 @@
     });
 
     render(false);
+    startAutoplay();
 
     window.addEventListener('load', () => {
         goTo(0);

@@ -1,13 +1,23 @@
 @use "variables" as *;
 
 .site-header {
+    position: relative;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $color-white;
     padding: 0 $spacing-lg;
-    border-bottom: 1px solid $color-gray-light;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: $spacing-lg;
+        right: $spacing-lg;
+        bottom: 0;
+        height: 1px;
+        background-color: $color-gray-light;
+    }
 
     &__left {
         display: flex;
