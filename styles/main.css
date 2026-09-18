@@ -161,6 +161,7 @@ body {
   width: 1382px;
   height: 1016px;
   flex-shrink: 0;
+  transform-origin: top center;
   transition: opacity 0.3s ease-out;
 }
 .page-wrapper.is-leaving {
