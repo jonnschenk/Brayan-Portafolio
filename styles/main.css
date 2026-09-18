@@ -283,7 +283,6 @@ body {
   height: 318px;
   margin-left: -129px;
   bottom: 80px;
-  cursor: pointer;
 }
 .carousel__card--active:hover {
   outline: 3px solid #B2F00D;
