@@ -4,8 +4,8 @@
         { name: 'Web projects', href: 'pages/projects.html' },
         { name: 'iOS & Android', href: 'pages/ecosystem.html' },
         { name: 'Design system', href: 'pages/design.html' },
-        { name: 'Social Impact', href: 'pages/impact.html' },
         { name: 'UX & Research', href: 'pages/research.html' },
+        { name: 'Social Impact', href: 'pages/impact.html' },
         { name: 'Contact me', href: 'pages/contact.html' }
     ];
 
@@ -21,6 +21,8 @@
     const total = cards.length;
     const NAVIGATION_DELAY = 300;
     const ROTATION_BY_LEVEL = { 0: 0, 1: 29.98, 2: 58.64, 3: 90 };
+    const LIFT_BY_LEVEL = { 0: 0, 1: 14, 2: 2, 3: 0 };
+    const SHIFT_BY_LEVEL = { 0: 0, 1: 15, 2: 17, 3: 0 };
     const CAROUSEL_DURATION = 1100;
     const LABEL_FADE = 300;
     const AUTOPLAY_INTERVAL = 4000;
@@ -45,6 +47,8 @@
             const rotation = Math.sign(offset) * ROTATION_BY_LEVEL[level];
 
             card.style.setProperty('--rotation', `${rotation}deg`);
+            card.style.setProperty('--lift', `${LIFT_BY_LEVEL[level]}px`);
+            card.style.setProperty('--shift', `${Math.sign(offset) * SHIFT_BY_LEVEL[level]}px`);
             card.style.setProperty('--z', total - level);
             card.classList.toggle('carousel__card--active', offset === 0);
             card.classList.toggle('carousel__card--no-transition', !withTransition);

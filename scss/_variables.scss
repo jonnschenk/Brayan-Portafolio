@@ -50,6 +50,12 @@ $radius-md: 24px;
 $radius-lg: 40px;
 $radius-full: 999px;
 
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-large: 1200px;
+
 // Transiciones
 $transition-hover: 150ms ease;
 $transition-navigation: 0.3s ease-out;

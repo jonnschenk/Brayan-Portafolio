@@ -17,7 +17,7 @@
 <body>
     <div class="viewport-container">
         <div class="page-wrapper">
-            <header class="site-header">
+            <header class="site-header site-header--desktop">
                 <div class="site-header__left"></div>
                 <div class="site-header__right">
                     <div class="site-header__social">
@@ -30,6 +30,43 @@
                     </div>
                     <span class="site-header__divider" aria-hidden="true"></span>
                     <a class="btn btn--main site-header__cta" href="assets/docs/Brayan_Ramirez_Product_Designer_CV.pdf" download>Download CV</a>
+                </div>
+            </header>
+
+            <header class="site-header site-header--mobile">
+                <div class="site-header__left">
+                    <div class="site-header__social">
+                        <a class="site-header__icon" href="https://www.linkedin.com/in/brayan-ramírez/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <img src="assets/icons/logo/Vector1.svg" alt="">
+                        </a>
+                        <a class="site-header__icon" href="mailto:martinezbrayanramirez28@gmail.com" aria-label="Email">
+                            <img src="assets/icons/logo/Vector2.svg" alt="Email">
+                        </a>
+                    </div>
+                </div>
+                <div class="site-header__right">
+                    <a class="btn btn--main site-header__cta" href="assets/docs/Brayan_Ramirez_Product_Designer_CV.pdf" download>Download CV</a>
+                    <span class="site-header__divider" aria-hidden="true"></span>
+                    <div class="site-header__menu">
+                        <button class="site-header__menu-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="site-menu-dropdown" aria-label="Abrir menú de navegación">
+                            <svg class="site-header__menu-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle cx="5" cy="12" r="2" fill="currentColor"/>
+                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                                <circle cx="19" cy="12" r="2" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <nav class="site-header__menu-dropdown" id="site-menu-dropdown" aria-label="Páginas secundarias">
+                            <ul class="site-header__menu-list">
+                                <li><a class="site-header__menu-link" href="pages/about.html">About me</a></li>
+                                <li><a class="site-header__menu-link" href="pages/projects.html">Web projects</a></li>
+                                <li><a class="site-header__menu-link" href="pages/ecosystem.html">iOS &amp; Android</a></li>
+                                <li><a class="site-header__menu-link" href="pages/design.html">Design system</a></li>
+                                <li><a class="site-header__menu-link" href="pages/impact.html">Social Impact</a></li>
+                                <li><a class="site-header__menu-link" href="pages/research.html">UX &amp; Research</a></li>
+                                <li><a class="site-header__menu-link" href="pages/contact.html">Contact me</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </header>
 
