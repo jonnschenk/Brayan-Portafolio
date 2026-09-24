@@ -1,0 +1,231 @@
+@use "../variables" as *;
+
+.contact {
+    display: flex;
+    height: 688px;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        width: 982px;
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 764px;
+    }
+
+    &__eyebrow {
+        margin: 0;
+        font-family: $font-body;
+        font-size: 24px;
+        font-weight: $font-weight-medium;
+        line-height: 29px;
+        color: $color-black;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-display-1;
+        font-size: 58px;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 16px;
+    }
+
+    &__btn {
+        gap: 12px;
+        height: 49px;
+        padding: 0 24px;
+        border-radius: $radius-full;
+        font-size: $font-size-label-lg;
+        font-weight: $font-weight-regular;
+        white-space: nowrap;
+    }
+
+    &__btn-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        width: 400px;
+        background-color: $color-white;
+    }
+
+    &__illustration {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+// El beige del panel derecho continúa hasta el fondo de la ventana (400 de 1382px del diseño)
+.page--contact .viewport-container {
+    background: linear-gradient(to right, var(--page-bg) calc(100% * 982 / 1382), $color-white 0);
+}
+
+.open-for {
+    width: 320px;
+    padding: 24px 24px 30px;
+    border-radius: $radius-sm;
+    background-color: $color-white-pure;
+    font-family: $font-body;
+
+    &__title {
+        margin: 0 0 16px;
+        padding: 3px 0 16px;
+        border-bottom: 1px solid $color-gray-light;
+        font-family: $font-title;
+        font-size: 20px;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__heading {
+        margin: 0 0 12px;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & + .open-for__heading {
+            margin-top: 17px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        line-height: 21px;
+        color: $color-gray-dark;
+    }
+
+    &__check {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        color: $color-teal;
+    }
+}
+
+// El salto extra del título solo existe en móvil
+.contact__br-mobile {
+    display: none;
+}
+
+// Móvil: diseño "Responsive contact me"
+@media (max-width: #{$breakpoint-tablet - 1px}) {
+    .page--contact .viewport-container {
+        background: var(--page-bg);
+    }
+
+    // La página ocupa al menos toda la pantalla para que el panel beige llegue al fondo
+    .page--contact .page-wrapper {
+        min-height: 100dvh;
+    }
+
+    .contact {
+        flex: 1;
+        min-height: 0;
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+
+        &__main {
+            gap: 34px;
+            width: 100%;
+            padding: 25px $spacing-md 0;
+        }
+
+        &__intro {
+            gap: 24px;
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 36px;
+            line-height: 45px;
+        }
+
+        &__br-mobile {
+            display: inline;
+        }
+
+        &__btn {
+            gap: 0;
+            width: 134px;
+            height: 32px;
+            padding: 0;
+            border-radius: $radius-sm;
+            font-size: $font-size-label;
+        }
+
+        &__actions {
+            gap: 8px;
+        }
+
+        &__btn-icon {
+            display: none;
+        }
+
+        // Panel beige con margen lateral que llega hasta el final de la página
+        // Nunca se encoge (el contenido hace scroll) y crece hasta el fondo si sobra espacio
+        &__aside {
+            flex: 1 0 auto;
+            justify-content: flex-start;
+            width: auto;
+            margin: 40px $spacing-md 0;
+            padding: 32px 40px;
+        }
+    }
+
+    .contact__illustration,
+    .open-for {
+        flex-shrink: 0;
+    }
+
+    .open-for {
+        width: 100%;
+        padding: 14px 16px;
+
+        &__title {
+            font-size: 16px;
+        }
+
+        &__heading {
+            margin-bottom: 8px;
+        }
+
+        &__item {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+}

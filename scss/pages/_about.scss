@@ -18,6 +18,12 @@
         overflow: hidden;
     }
 
+    &__avatar picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
     // La ilustración va al 112% para que el círculo quede solo sobre el fondo lavanda, como en el diseño
     &__avatar-img {
         display: block;
@@ -530,88 +536,175 @@
     }
 }
 
-// Móvil provisional (sin diseño aún): todo en una columna
+// Móvil: diseño "Responsive about me"
 @media (max-width: #{$breakpoint-tablet - 1px}) {
     .about {
         flex: 1;
         min-height: 0;
         overflow-y: auto;
-        padding: $spacing-lg $spacing-md;
+        padding: 25px $spacing-md $spacing-lg;
     }
 
+    // El título va antes del avatar: se reordenan los hijos del bloque de texto
     .about-hero {
         flex-direction: column;
-        align-items: flex-start;
-        gap: $spacing-lg;
+        align-items: center;
+        gap: 0;
         height: auto;
+        text-align: center;
 
-        &__avatar {
-            align-self: center;
-            width: min(240px, 60vw);
-            height: min(240px, 60vw);
-        }
-
-        &__content {
-            width: 100%;
-            gap: $spacing-lg;
-        }
-
+        &__content,
         &__intro {
-            gap: $spacing-sm;
+            display: contents;
         }
 
         &__title {
-            font-size: clamp(40px, 12vw, 58px);
+            order: 1;
+            font-size: 36px;
+        }
+
+        &__avatar {
+            order: 2;
+            width: 160px;
+            height: 160px;
+            margin-top: 32px;
+        }
+
+        // En móvil se muestra la foto (ya viene recortada en círculo), sin el zoom de la ilustración
+        &__avatar-img {
+            transform: none;
         }
 
         &__text {
-            font-size: 16px;
-            line-height: 26px;
+            order: 3;
+            margin-top: 26px;
+            font-size: 14px;
+            line-height: 20px;
         }
+
+        &__actions {
+            order: 4;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 39px;
+        }
+    }
+
+    .footprint,
+    .experience,
+    .info-card {
+        margin-top: $spacing-md;
+        padding: 14px $spacing-sm $spacing-sm;
     }
 
     .footprint {
         height: auto;
-        padding: $spacing-md $spacing-sm;
+        padding-top: 21px;
+        padding-bottom: 20px;
 
         &__header {
-            padding-top: 0;
-            padding-bottom: $spacing-md;
+            gap: 9px;
+            padding: 0 0 $spacing-sm;
+        }
+
+        &__title {
+            font-size: 16px;
+        }
+
+        &__subtitle {
+            font-size: 14px;
+            line-height: 20px;
         }
 
         &__body {
             flex-direction: column;
-            gap: $spacing-lg;
-            padding-top: $spacing-md;
+            align-items: center;
+            gap: 22px;
+            padding-top: 19px;
         }
 
+        // En el diseño móvil el mapa va un poco más achatado que el PNG original
         &__map {
             width: 100%;
+            height: auto;
+            aspect-ratio: 308 / 129;
             margin-left: 0;
         }
     }
 
     .languages {
-        width: 100%;
+        gap: 22px;
+        width: 182px;
         margin: 0;
+        padding: 18px $spacing-sm 23px;
+
+        &__intro {
+            gap: 4px;
+            padding-bottom: 14px;
+        }
+
+        &__title {
+            font-size: 14px;
+        }
+
+        &__subtitle {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        &__list {
+            gap: 20px;
+        }
+
+        &__item {
+            gap: 4px;
+            height: 16px;
+            font-size: 12px;
+        }
+
+        &__flag {
+            width: 22px;
+            margin: 0 12px 0 4px;
+        }
+    }
+
+    .experience__title,
+    .info-card__title {
+        padding: 4px 0 15px;
+        font-size: 16px;
     }
 
     .experience {
-        padding: $spacing-md $spacing-sm;
+        padding-bottom: 12px;
+
+        &__toggle {
+            margin-top: $spacing-sm;
+        }
     }
 
+    // En móvil cada puesto muestra solo empresa, cargo y fechas
     .job {
-        flex-wrap: wrap;
         align-items: flex-start;
-        gap: 12px 16px;
-        padding: $spacing-md 0;
+        padding: 18px 0 17px;
 
         &:first-child {
-            padding-top: $spacing-md;
+            padding-top: 18px;
         }
 
         &::after {
-            left: 0;
+            left: 44px;
+        }
+
+        &__logo {
+            width: 28px;
+            height: 28px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
         }
 
         &__info {
@@ -619,48 +712,128 @@
             flex: 1;
         }
 
-        &__desc {
-            width: 100%;
+        &__company,
+        &__role {
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        &__dates {
+            margin-top: 7px;
+            font-size: 12px;
+            line-height: 16px;
         }
     }
 
-    // Sin diseño móvil aún: la línea de tiempo pasa a vertical
-    .timeline {
-        flex-direction: column;
-        gap: $spacing-sm;
-        width: 100%;
-        margin-top: 0;
-        padding: 0 0 0 28px;
-
-        &::before {
-            top: 7px;
-            bottom: 7px;
-            left: 6.25px;
-            right: auto;
-            width: 1.5px;
-            height: auto;
-        }
-
-        &::after {
-            display: none;
-        }
-
-        &__item {
-            align-items: flex-start;
-            width: auto;
-            text-align: left;
-
-            &::before {
-                top: 3px;
-                left: -28px;
-                margin-left: 0;
-            }
-        }
+    .timeline,
+    .job__desc {
+        display: none;
     }
 
     .about-grid {
         grid-template-columns: 1fr;
-        gap: $spacing-lg;
-        margin-top: $spacing-lg;
+        gap: 0;
+        margin-top: 0;
+    }
+
+    .entry {
+        gap: $spacing-sm;
+        padding: 17px 0 18px;
+        color: $color-black;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &:not(:last-child)::after {
+            left: 44px;
+        }
+
+        &__logo {
+            width: 28px;
+            height: 28px;
+            margin-top: 0;
+        }
+
+        &__name {
+            font-size: 14px;
+            font-weight: $font-weight-semibold;
+            line-height: 19px;
+        }
+
+        &__subject {
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        &__dates {
+            margin-top: 8px;
+            font-size: 12px;
+            line-height: 16px;
+            color: $color-gray-dark;
+        }
+
+        &__sub {
+            margin-top: 17px;
+
+            &::before {
+                top: 5px;
+                left: -33px;
+                width: 6px;
+                height: 6px;
+            }
+
+            &::after {
+                top: -51px;
+                left: -30.5px;
+                width: 1px;
+                height: 59px;
+            }
+        }
+    }
+
+    .skills {
+        padding-bottom: 10px;
+
+        &__group {
+            padding-top: 17px;
+
+            & + & {
+                padding-top: 32px;
+            }
+        }
+
+        &__heading {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        &__list {
+            gap: 4px;
+        }
+    }
+
+    .skill {
+        white-space: nowrap;
+    }
+}
+
+// Header móvil de páginas secundarias: sin "Download CV" y con "Home" más compacto
+@media (max-width: #{$breakpoint-tablet - 1px}) {
+    .page--secondary .site-header--mobile {
+        .site-header__cta {
+            display: none;
+        }
+
+        .site-header__back {
+            gap: 8px;
+            margin-left: 4px;
+            font-size: 20px;
+        }
+
+        .site-header__back-svg {
+            width: 16px;
+            height: 16px;
+        }
     }
 }
