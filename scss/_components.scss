@@ -24,4 +24,16 @@
             border-color: $color-accent;
         }
     }
+
+    &--outline {
+        background-color: transparent;
+        color: $color-black;
+        border-radius: $radius-sm;
+        padding: 4px $spacing-sm;
+        border: 2px solid $color-accent;
+
+        &:hover {
+            background-color: $color-accent;
+        }
+    }
 }

@@ -2,6 +2,19 @@
 
 // Unidad del carrusel móvil: 1vw hasta 400px de ancho y fija después,
 // para que la composición no se deforme entre 400px y el breakpoint de tablet
+// Efecto de hover solo con mouse; en pantallas táctiles se ve únicamente mientras se presiona
+@mixin pressed {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    &:active {
+        @content;
+    }
+}
+
 @function u($n) {
     @return calc(#{$n} * min(1vw, 4px));
 }
@@ -190,7 +203,7 @@
             right: -60px;
         }
 
-        &:hover {
+        @include pressed {
             background-color: $color-teal;
             width: 70px;
             height: 70px;
@@ -203,7 +216,14 @@
         height: 24px;
         transition: width $transition-hover, height $transition-hover;
 
-        .carousel__arrow:hover & {
+        @media (hover: hover) {
+            .carousel__arrow:hover & {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        .carousel__arrow:active & {
             width: 28px;
             height: 28px;
         }
@@ -340,7 +360,7 @@
                 left: auto;
             }
 
-            &:hover {
+            @include pressed {
                 width: u(16.5);
                 height: u(16.5);
                 max-width: 66px;

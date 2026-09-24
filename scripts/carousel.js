@@ -123,6 +123,9 @@
         });
     });
 
+    // Safari en iOS solo aplica :active si existe un listener de touchstart
+    carousel.addEventListener('touchstart', () => {}, { passive: true });
+
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
 

@@ -25,6 +25,37 @@
         gap: $spacing-sm;
     }
 
+    &__back {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: $font-body;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-label-lg;
+        line-height: 1;
+        color: $color-black;
+        text-decoration: none;
+
+        &:hover .site-header__back-icon {
+            background-color: $color-gray-soft;
+        }
+    }
+
+    &__back-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: $radius-full;
+        transition: background-color $transition-hover;
+    }
+
+    &__back-svg {
+        width: 24px;
+        height: 24px;
+    }
+
     &__right {
         display: flex;
         align-items: center;
@@ -57,6 +88,14 @@
         &:hover {
             background-color: $color-gray-light;
         }
+    }
+
+    &__cta {
+        width: 134px;
+        height: 32px;
+        min-width: 80px;
+        gap: 10px;
+        flex-shrink: 0;
     }
 
     &__divider {

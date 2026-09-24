@@ -98,6 +98,16 @@ body {
   background-color: #96C123;
   border-color: #B2F00D;
 }
+.btn--outline {
+  background-color: transparent;
+  color: #0F0F0E;
+  border-radius: 16px;
+  padding: 4px 16px;
+  border: 2px solid #B2F00D;
+}
+.btn--outline:hover {
+  background-color: #B2F00D;
+}
 
 .site-header {
   position: relative;
@@ -121,6 +131,33 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+.site-header__back {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  color: #0F0F0E;
+  text-decoration: none;
+}
+.site-header__back:hover .site-header__back-icon {
+  background-color: #E5E5DF;
+}
+.site-header__back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  transition: background-color 150ms ease;
+}
+.site-header__back-svg {
+  width: 24px;
+  height: 24px;
 }
 .site-header__right {
   display: flex;
@@ -150,6 +187,13 @@ body {
 }
 .site-header__icon:hover {
   background-color: #C5C5C5;
+}
+.site-header__cta {
+  width: 134px;
+  height: 32px;
+  min-width: 80px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 .site-header__divider {
   width: 1px;
@@ -422,7 +466,15 @@ body {
 .carousel__arrow--next {
   right: -60px;
 }
-.carousel__arrow:hover {
+@media (hover: hover) {
+  .carousel__arrow:hover {
+    background-color: #0B4650;
+    width: 70px;
+    height: 70px;
+    padding: 11.667px;
+  }
+}
+.carousel__arrow:active {
   background-color: #0B4650;
   width: 70px;
   height: 70px;
@@ -433,7 +485,13 @@ body {
   height: 24px;
   transition: width 150ms ease, height 150ms ease;
 }
-.carousel__arrow:hover .carousel__arrow-icon {
+@media (hover: hover) {
+  .carousel__arrow:hover .carousel__arrow-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+.carousel__arrow:active .carousel__arrow-icon {
   width: 28px;
   height: 28px;
 }
@@ -549,7 +607,18 @@ body {
   .carousel__arrow--next {
     left: auto;
   }
+}
+@media (max-width: 767px) and (hover: hover) {
   .carousel__arrow:hover {
+    width: calc(16.5 * min(1vw, 4px));
+    height: calc(16.5 * min(1vw, 4px));
+    max-width: 66px;
+    max-height: 66px;
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  .carousel__arrow:active {
     width: calc(16.5 * min(1vw, 4px));
     height: calc(16.5 * min(1vw, 4px));
     max-width: 66px;
@@ -562,6 +631,99 @@ body {
     bottom: calc(calc(46 * min(1vw, 4px)) + 4px);
     transform: translate(-50%, 50%);
     padding: 6px 16px;
+  }
+}
+.about {
+  padding: 30px 80px 0;
+}
+
+.about-hero {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  height: 500px;
+}
+.about-hero__avatar {
+  flex-shrink: 0;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.about-hero__avatar-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+}
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 764px;
+}
+.about-hero__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.about-hero__title {
+  margin: 0;
+  font-family: "Rubik Vinyl";
+  font-size: 58px;
+  font-weight: 400;
+  color: #0F0F0E;
+}
+.about-hero__text {
+  margin: 0;
+  font-family: "Urbanist", sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  color: #0F0F0E;
+}
+.about-hero__actions {
+  display: flex;
+  gap: 16px;
+}
+.about-hero__btn {
+  white-space: nowrap;
+  width: 134px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .about {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 32px 24px;
+  }
+  .about-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    height: auto;
+  }
+  .about-hero__avatar {
+    align-self: center;
+    width: min(240px, 60vw);
+    height: min(240px, 60vw);
+  }
+  .about-hero__content {
+    width: 100%;
+    gap: 32px;
+  }
+  .about-hero__intro {
+    gap: 16px;
+  }
+  .about-hero__title {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+  .about-hero__text {
+    font-size: 16px;
+    line-height: 26px;
   }
 }
 
