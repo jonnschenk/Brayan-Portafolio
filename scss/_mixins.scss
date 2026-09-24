@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-desktop - 0.02px}) {
+        @content;
+    }
+}
+
+@mixin pressed {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    &:active {
+        @content;
+    }
+}
+
+@mixin section-title($size: 24px) {
+    font-family: $font-title;
+    font-size: $size;
+    font-weight: $font-weight-regular;
+    line-height: 1.2;
+    color: $color-black;
+}

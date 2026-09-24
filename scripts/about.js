@@ -7,9 +7,11 @@
 
     toggle.addEventListener('click', () => {
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
+
         extraJobs.forEach((job) => {
             job.hidden = expanded;
         });
+
         toggle.setAttribute('aria-expanded', String(!expanded));
         label.textContent = expanded ? 'View all' : 'View less';
     });

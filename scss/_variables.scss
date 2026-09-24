@@ -1,43 +1,42 @@
-// Colores — Basic
 $color-lavender: #C6B5F0;
 $color-accent: #B2F00D;
 $color-pink: #F9CBFF;
 
-// Colores — Accent
 $color-black: #0F0F0E;
 $color-teal: #0B4650;
 $color-white: #F8F8F1;
 
-// Colores — extra
 $color-white-pure: #FFFFFF;
 
-// Colores — Texto
 $color-gray-dark: #606060;
+$color-gray-muted: #B0B0B0;
 $color-gray-light: #C5C5C5;
 $color-gray-soft: #E5E5DF;
 
-// Estados
+$color-accent-soft: #FBFFF1;
+$color-teal-soft: #CEEEF3;
+$color-pink-soft: #FCE6FF;
+$color-lavender-soft: #DFD2FF;
+$color-lemon-soft: #E5FCA9;
+$color-orange-soft: #F7E7D0;
+
 $color-accent-hover: #96C123;
 
-// Tipografía
 $font-display-1: 'Rubik Vinyl';
 $font-display-2: 'Rubik Wet Paint';
 $font-title: 'Nura', sans-serif;
 $font-body: 'Urbanist', sans-serif;
 
-// Tamaños
 $font-size-hero: 64px;
 $font-size-title: 32px;
 $font-size-label: 16px;
 $font-size-label-lg: 24px;
 
-// Pesos
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// Espaciado
 $spacing-xs: 4px;
 $spacing-sm: 16px;
 $spacing-md: 24px;
@@ -45,19 +44,18 @@ $spacing-lg: 32px;
 $spacing-xl: 48px;
 $spacing-2xl: 64px;
 
-// Radios
 $radius-sm: 16px;
 $radius-md: 24px;
 $radius-lg: 40px;
 $radius-full: 999px;
 
-// Breakpoints
 $breakpoint-mobile: 480px;
+$breakpoint-sm: 576px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 992px;
 $breakpoint-large: 1200px;
+$breakpoint-xxl: 1400px;
 
-// Transiciones
 $transition-hover: 150ms ease;
 $transition-navigation: 0.3s ease-out;
 $transition-blob: 0.45s linear;

@@ -5,35 +5,40 @@
     align-items: center;
     justify-content: center;
     font-family: $font-body;
-    font-weight: $font-weight-medium;
     font-size: $font-size-label;
-    text-decoration: none;
-    border: none;
+    font-weight: $font-weight-medium;
     cursor: pointer;
     transition: background-color $transition-hover;
 
     &--main {
-        background-color: $color-accent;
-        color: $color-black;
-        border-radius: $radius-sm;
         padding: 4px $spacing-sm;
         border: 2px solid transparent;
+        border-radius: $radius-sm;
+        background-color: $color-accent;
+        color: $color-black;
 
         &:hover {
-            background-color: $color-accent-hover;
             border-color: $color-accent;
+            background-color: $color-accent-hover;
         }
     }
 
     &--outline {
-        background-color: transparent;
-        color: $color-black;
-        border-radius: $radius-sm;
         padding: 4px $spacing-sm;
         border: 2px solid $color-accent;
+        border-radius: $radius-sm;
+        background-color: transparent;
+        color: $color-black;
 
         &:hover {
             background-color: $color-white;
         }
+    }
+
+    &--compact {
+        flex-shrink: 0;
+        width: 134px;
+        height: 32px;
+        white-space: nowrap;
     }
 }

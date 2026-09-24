@@ -1,4 +1,5 @@
 @use "../variables" as *;
+@use "../mixins" as *;
 
 .about {
     padding: 30px 80px 48px;
@@ -11,6 +12,7 @@
     height: 500px;
 
     &__avatar {
+        position: relative;
         flex-shrink: 0;
         width: 360px;
         height: 360px;
@@ -18,19 +20,32 @@
         overflow: hidden;
     }
 
-    &__avatar picture {
+    &__picture {
         display: block;
         width: 100%;
         height: 100%;
     }
 
-    // La ilustración va al 112% para que el círculo quede solo sobre el fondo lavanda, como en el diseño
     &__avatar-img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         transform: scale(1.12);
+    }
+
+    &__avatar-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: avatar-reveal 1.6s ease-in-out 2s forwards;
+
+        @media (prefers-reduced-motion: reduce) {
+            opacity: 1;
+            animation: none;
+        }
     }
 
     &__content {
@@ -47,7 +62,6 @@
     }
 
     &__title {
-        margin: 0;
         font-family: $font-display-1;
         font-size: 58px;
         font-weight: $font-weight-regular;
@@ -55,7 +69,6 @@
     }
 
     &__text {
-        margin: 0;
         font-family: $font-body;
         font-size: 20px;
         line-height: 32px;
@@ -66,19 +79,12 @@
         display: flex;
         gap: $spacing-sm;
     }
-
-    &__btn {
-        white-space: nowrap;
-        width: 134px;
-        height: 32px;
-        flex-shrink: 0;
-    }
 }
 
 .footprint {
+    height: 572px;
     margin-top: 32px;
     padding: 24px;
-    height: 572px;
     border: 1px solid $color-gray-light;
     border-radius: $radius-sm;
 
@@ -86,22 +92,15 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        padding-top: 3px;
-        padding-bottom: 31px;
+        padding: 3px 0 31px;
         border-bottom: 1px solid $color-gray-light;
     }
 
     &__title {
-        margin: 0;
-        font-family: $font-title;
-        font-size: 24px;
-        font-weight: $font-weight-regular;
-        line-height: 1.2;
-        color: $color-black;
+        @include section-title;
     }
 
     &__subtitle {
-        margin: 0;
         font-family: $font-body;
         font-size: 16px;
         line-height: 1.4;
@@ -114,7 +113,6 @@
         padding-top: 66px;
     }
 
-    // El PNG incluye las etiquetas de los países; se muestra a 814×362 como en el diseño
     &__map {
         flex-shrink: 0;
         width: 814px;
@@ -132,7 +130,8 @@
     padding: 24px 24px 32px;
     border: 1px solid $color-accent;
     border-radius: $radius-sm;
-    background-color: #FBFFF1;
+    background-color: $color-accent-soft;
+    font-family: $font-body;
 
     &__intro {
         display: flex;
@@ -143,8 +142,6 @@
     }
 
     &__title {
-        margin: 0;
-        font-family: $font-body;
         font-size: 20px;
         font-weight: $font-weight-medium;
         line-height: 1.2;
@@ -152,8 +149,6 @@
     }
 
     &__subtitle {
-        margin: 0;
-        font-family: $font-body;
         font-size: 14px;
         line-height: 20px;
         color: $color-gray-dark;
@@ -170,7 +165,6 @@
         align-items: center;
         gap: 6px;
         height: 24px;
-        font-family: $font-body;
         font-size: 14px;
     }
 
@@ -185,28 +179,24 @@
     }
 
     &__level {
-        color: #B0B0B0;
+        color: $color-gray-muted;
     }
 }
 
 .experience {
     margin-top: 48px;
-    padding: 32px 32px 32px;
+    padding: 32px;
     border: 1px solid $color-gray-light;
     border-radius: $radius-sm;
 
     &__title {
-        margin: 0;
+        @include section-title;
         padding: 2px 0 23px;
         border-bottom: 1px solid $color-gray-light;
-        font-family: $font-title;
-        font-size: 24px;
-        font-weight: $font-weight-regular;
-        line-height: 1.2;
-        color: $color-black;
     }
 
     &__toggle {
+        display: flex;
         gap: 10px;
         height: 44px;
         margin: 24px auto 0;
@@ -226,11 +216,6 @@
     }
 }
 
-// .btn es inline-flex; el botón se centra como bloque
-.experience__toggle {
-    display: flex;
-}
-
 .job {
     position: relative;
     display: flex;
@@ -246,7 +231,6 @@
         display: none;
     }
 
-    // La línea divisoria arranca a la altura del texto, no del logo
     &::after {
         content: '';
         position: absolute;
@@ -261,14 +245,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        align-self: flex-start;
         flex-shrink: 0;
         width: 56px;
         height: 56px;
-        align-self: flex-start;
+    }
 
-        img {
-            max-width: none;
-        }
+    &__logo-img {
+        max-width: none;
     }
 
     &__info {
@@ -279,14 +263,12 @@
     }
 
     &__company {
-        margin: 0;
         font-size: 16px;
         font-weight: $font-weight-semibold;
         line-height: 20px;
     }
 
     &__role {
-        margin: 0;
         font-size: 16px;
         line-height: 20px;
     }
@@ -294,14 +276,13 @@
     &__dates {
         display: flex;
         gap: 10px;
-        margin: 14px 0 0;
+        margin-top: 14px;
         font-size: 14px;
         line-height: 20px;
         color: $color-gray-dark;
     }
 
     &__desc {
-        margin: 0;
         font-family: $font-body;
         font-size: 14px;
         line-height: 20px;
@@ -316,7 +297,6 @@
     margin-top: 18px;
     padding-top: 17px;
 
-    // Línea de tiempo con flecha al final
     &::before {
         content: '';
         position: absolute;
@@ -371,7 +351,7 @@
         gap: 5px;
         font-size: 12px;
         line-height: 16px;
-        color: #B0B0B0;
+        color: $color-gray-muted;
     }
 }
 
@@ -389,14 +369,9 @@
     border-radius: $radius-sm;
 
     &__title {
-        margin: 0;
+        @include section-title;
         padding: 3px 0 22px;
         border-bottom: 1px solid $color-gray-light;
-        font-family: $font-title;
-        font-size: 24px;
-        font-weight: $font-weight-regular;
-        line-height: 1.2;
-        color: $color-black;
     }
 }
 
@@ -413,7 +388,6 @@
         padding-bottom: 7px;
     }
 
-    // Divisor entre entradas, alineado con el texto
     &:not(:last-child)::after {
         content: '';
         position: absolute;
@@ -436,14 +410,12 @@
     }
 
     &__name {
-        margin: 0;
         font-size: 16px;
         font-weight: $font-weight-medium;
         line-height: 20px;
     }
 
     &__subject {
-        margin: 0;
         font-size: 16px;
         line-height: 20px;
     }
@@ -451,7 +423,7 @@
     &__dates {
         display: flex;
         gap: 10px;
-        margin: 12px 0 0;
+        margin-top: 12px;
         font-size: 14px;
         line-height: 20px;
     }
@@ -460,7 +432,6 @@
         position: relative;
         margin-top: 22px;
 
-        // Punto de la línea que une el título principal con el diplomado
         &::before {
             content: '';
             position: absolute;
@@ -472,7 +443,6 @@
             background-color: $color-lavender;
         }
 
-        // Tramo desde el logo hasta el punto (el título principal ocupa 4 líneas)
         &::after {
             content: '';
             position: absolute;
@@ -497,7 +467,7 @@
     }
 
     &__heading {
-        margin: 0 0 16px;
+        margin-bottom: 16px;
         font-family: $font-body;
         font-size: 16px;
         font-weight: $font-weight-semibold;
@@ -528,16 +498,29 @@
         border-radius: $radius-full;
         background: center / 20px no-repeat;
 
-        &--teal { background-color: #CEEEF3; }
-        &--pink { background-color: #FCE6FF; }
-        &--lavender { background-color: #DFD2FF; }
-        &--lemon { background-color: #E5FCA9; }
-        &--orange { background-color: #F7E7D0; }
+        &--teal {
+            background-color: $color-teal-soft;
+        }
+
+        &--pink {
+            background-color: $color-pink-soft;
+        }
+
+        &--lavender {
+            background-color: $color-lavender-soft;
+        }
+
+        &--lemon {
+            background-color: $color-lemon-soft;
+        }
+
+        &--orange {
+            background-color: $color-orange-soft;
+        }
     }
 }
 
-// Móvil: diseño "Responsive about me"
-@media (max-width: #{$breakpoint-tablet - 1px}) {
+@include mobile {
     .about {
         flex: 1;
         min-height: 0;
@@ -545,7 +528,6 @@
         padding: 25px $spacing-md $spacing-lg;
     }
 
-    // El título va antes del avatar: se reordenan los hijos del bloque de texto
     .about-hero {
         flex-direction: column;
         align-items: center;
@@ -570,9 +552,12 @@
             margin-top: 32px;
         }
 
-        // En móvil se muestra la foto (ya viene recortada en círculo), sin el zoom de la ilustración
         &__avatar-img {
             transform: none;
+        }
+
+        &__avatar-photo {
+            display: none;
         }
 
         &__text {
@@ -623,10 +608,8 @@
             padding-top: 19px;
         }
 
-        // En el diseño móvil el mapa va un poco más achatado que el PNG original
         &__map {
             width: 100%;
-            height: auto;
             aspect-ratio: 308 / 129;
             margin-left: 0;
         }
@@ -650,10 +633,6 @@
         &__subtitle {
             font-size: 12px;
             line-height: 18px;
-        }
-
-        &__list {
-            gap: 20px;
         }
 
         &__item {
@@ -682,7 +661,6 @@
         }
     }
 
-    // En móvil cada puesto muestra solo empresa, cargo y fechas
     .job {
         align-items: flex-start;
         padding: 18px 0 17px;
@@ -698,18 +676,18 @@
         &__logo {
             width: 28px;
             height: 28px;
+        }
 
-            img {
-                max-width: 100%;
-                max-height: 100%;
-                width: auto;
-                height: auto;
-            }
+        &__logo-img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
         }
 
         &__info {
-            width: auto;
             flex: 1;
+            width: auto;
         }
 
         &__company,
@@ -723,10 +701,13 @@
             font-size: 12px;
             line-height: 16px;
         }
+
+        &__desc {
+            display: none;
+        }
     }
 
-    .timeline,
-    .job__desc {
+    .timeline {
         display: none;
     }
 
@@ -752,7 +733,6 @@
         &__logo {
             width: 28px;
             height: 28px;
-            margin-top: 0;
         }
 
         &__name {
@@ -815,25 +795,5 @@
 
     .skill {
         white-space: nowrap;
-    }
-}
-
-// Header móvil de páginas secundarias: sin "Download CV" y con "Home" más compacto
-@media (max-width: #{$breakpoint-tablet - 1px}) {
-    .page--secondary .site-header--mobile {
-        .site-header__cta {
-            display: none;
-        }
-
-        .site-header__back {
-            gap: 8px;
-            margin-left: 4px;
-            font-size: 20px;
-        }
-
-        .site-header__back-svg {
-            width: 16px;
-            height: 16px;
-        }
     }
 }

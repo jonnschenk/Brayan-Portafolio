@@ -1,6 +1,27 @@
 @use "variables" as *;
+@use "mixins" as *;
 
-// Nura no está en Google Fonts: se sirve desde el proyecto
+@font-face {
+    font-family: 'Urbanist';
+    src: url('../assets/fonts/urbanist-variable-latin.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik Vinyl';
+    src: url('../assets/fonts/rubik-vinyl-latin.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik Wet Paint';
+    src: url('../assets/fonts/rubik-wet-paint-latin.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
 @font-face {
     font-family: 'Nura';
     src: url('../assets/fonts/Nura.ttf') format('truetype');
@@ -8,25 +29,29 @@
     font-display: swap;
 }
 
-body {
+.page {
     --page-bg: #{$color-white};
     background-color: var(--page-bg);
 
-    // Páginas secundarias: fondo blanco puro
-    &.page--secondary {
+    &--secondary {
         --page-bg: #{$color-white-pure};
+
+        .viewport-container {
+            height: auto;
+            min-height: 100dvh;
+            overflow: visible;
+        }
+
+        .page-wrapper {
+            height: auto;
+        }
     }
 }
 
-// Las páginas secundarias sí tienen scroll: el contenido crece hacia abajo
-.page--secondary {
-    .viewport-container {
-        height: auto;
-        min-height: 100dvh;
-        overflow: visible;
-    }
+.mobile-break {
+    display: none;
 
-    .page-wrapper {
-        height: auto;
+    @include mobile {
+        display: inline;
     }
 }

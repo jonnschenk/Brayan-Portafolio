@@ -1,44 +1,8 @@
 @use "../variables" as *;
-
-// Unidad del carrusel móvil: 1vw hasta 400px de ancho y fija después,
-// para que la composición no se deforme entre 400px y el breakpoint de tablet
-// Efecto de hover solo con mouse; en pantallas táctiles se ve únicamente mientras se presiona
-@mixin pressed {
-    @media (hover: hover) {
-        &:hover {
-            @content;
-        }
-    }
-
-    &:active {
-        @content;
-    }
-}
+@use "../mixins" as *;
 
 @function u($n) {
     @return calc(#{$n} * min(1vw, 4px));
-}
-
-.viewport-container {
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    background-color: var(--page-bg);
-}
-
-.page-wrapper {
-    width: 1382px;
-    height: 1016px;
-    flex-shrink: 0;
-    transform-origin: top center;
-    transition: opacity $transition-navigation;
-
-    &.is-leaving {
-        opacity: 0;
-    }
 }
 
 .hero {
@@ -46,9 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 60px;
     width: 100%;
     padding-top: 32px;
-    gap: 60px;
 
     &__title {
         position: relative;
@@ -56,7 +20,6 @@
         display: flex;
         justify-content: center;
         gap: $spacing-md;
-        margin: 0;
         font-size: $font-size-hero;
         font-weight: $font-weight-regular;
         color: $color-black;
@@ -71,7 +34,10 @@
     &__letter {
         display: inline-block;
         width: 47px;
+        font-family: $font-display-1;
         text-align: center;
+        animation: name-font-wave 16.3s steps(1) infinite;
+        animation-delay: calc(var(--letter-index) * 0.6s);
 
         &--narrow {
             width: 30px;
@@ -82,28 +48,53 @@
             white-space: nowrap;
         }
     }
+
+    @include mobile {
+        flex: 1;
+        min-height: 0;
+        gap: $spacing-md;
+        padding-top: $spacing-lg;
+
+        &__title {
+            flex-direction: column;
+            gap: 2px;
+            font-size: clamp(48px, 16vw, 64px);
+            line-height: 1;
+        }
+
+        &__word {
+            justify-content: center;
+        }
+
+        &__letter {
+            width: min(47px, 11.75vw);
+
+            &--narrow {
+                width: min(30px, 7.5vw);
+            }
+        }
+    }
 }
 
 .carousel {
     position: relative;
+    flex-shrink: 0;
     width: 968px;
     height: 620px;
-    flex-shrink: 0;
 
     &__blob-base {
+        --ring-width: 2px;
         position: absolute;
         top: calc(100% - 100px);
         left: 50%;
+        z-index: 0;
         width: 360px;
         height: 360px;
-        transform: translate(-50%, -50%);
         border-radius: $radius-full;
-        // Guiones de 7px con 7px de separación (80 en el círculo), como en el diseño
-        --ring-width: 2px;
         background: repeating-conic-gradient(rgba($color-lavender, 0.9) 0deg 2.25deg, transparent 2.25deg 4.5deg);
         -webkit-mask: radial-gradient(circle closest-side, transparent calc(100% - var(--ring-width)), #000 calc(100% - var(--ring-width)));
         mask: radial-gradient(circle closest-side, transparent calc(100% - var(--ring-width)), #000 calc(100% - var(--ring-width)));
-        z-index: 0;
+        transform: translate(-50%, -50%);
         pointer-events: none;
     }
 
@@ -111,12 +102,12 @@
         position: absolute;
         top: calc(100% - 100px);
         left: 50%;
+        z-index: 0;
         width: 268px;
         height: 270px;
-        transform: translate(-50%, -50%);
         border-radius: $radius-full;
         background: radial-gradient(circle, rgba($color-lavender, 0.95) 0%, rgba($color-lavender, 0) 70%);
-        z-index: 0;
+        transform: translate(-50%, -50%);
         animation: blob-pulse $transition-blob infinite;
         pointer-events: none;
     }
@@ -130,25 +121,16 @@
         position: absolute;
         left: 50%;
         bottom: 121px;
+        z-index: var(--z, 1);
         width: 220px;
         height: 260px;
         margin-left: -110px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: $spacing-md;
         border-radius: $radius-sm;
         background-color: $color-teal;
         overflow: hidden;
-        color: $color-white;
-        text-decoration: none;
-        font-family: $font-body;
-        font-weight: $font-weight-medium;
-        text-align: center;
         transform-origin: center bottom;
         transform: rotate(var(--rotation, 0deg)) translate(var(--shift, 0px), calc(-212px - var(--lift, 0px)));
         transition: transform $transition-carousel, width $transition-carousel, height $transition-carousel, margin-left $transition-carousel, bottom $transition-carousel;
-        z-index: var(--z, 1);
         cursor: pointer;
 
         &--no-transition {
@@ -180,20 +162,19 @@
     &__arrow {
         position: absolute;
         top: 173px;
-        transform: translateY(-50%);
+        z-index: 20;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 60px;
         height: 60px;
         padding: 10px;
-        border: none;
         border-radius: $radius-full;
         background-color: $color-black;
         color: $color-white;
+        transform: translateY(-50%);
         cursor: pointer;
         transition: background-color $transition-hover, width $transition-hover, height $transition-hover, padding $transition-hover;
-        z-index: 20;
 
         &--prev {
             left: -60px;
@@ -204,10 +185,10 @@
         }
 
         @include pressed {
-            background-color: $color-teal;
             width: 70px;
             height: 70px;
             padding: 11.667px;
+            background-color: $color-teal;
         }
     }
 
@@ -231,14 +212,14 @@
 
     &__label {
         position: absolute;
-        left: 50%;
         top: 273px;
-        transform: translateX(-50%);
+        left: 50%;
         z-index: 15;
-        opacity: 1;
-        font-size: $font-size-label-lg;
         padding: 5px $spacing-md;
         border-radius: $radius-full;
+        font-size: $font-size-label-lg;
+        opacity: 1;
+        transform: translateX(-50%);
         transition: opacity $transition-navigation;
 
         &--hidden {
@@ -252,48 +233,11 @@
     }
 
     &:has(&__card--active:hover) &__label {
-        background-color: $color-accent-hover;
         border-color: $color-accent;
-    }
-}
-
-@media (max-width: #{$breakpoint-tablet - 1px}) {
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100dvh;
+        background-color: $color-accent-hover;
     }
 
-    .hero {
-        flex: 1;
-        min-height: 0;
-        width: 100%;
-        padding-top: $spacing-lg;
-        gap: $spacing-md;
-
-        &__title {
-            flex-direction: column;
-            gap: 2px;
-            font-size: clamp(48px, 16vw, 64px);
-            line-height: 1;
-        }
-
-        &__word {
-            justify-content: center;
-            gap: 4px;
-        }
-
-        &__letter {
-            width: min(47px, 11.75vw);
-
-            &--narrow {
-                width: min(30px, 7.5vw);
-            }
-        }
-    }
-
-    .carousel {
+    @include mobile {
         flex: 1;
         min-height: 0;
         width: 100%;
@@ -301,9 +245,7 @@
 
         &__blob-base,
         &__blob-pulse {
-            // Centro 6u bajo el carrusel: las cards y la etiqueta nunca tocan los blobs
             top: calc(100% + #{u(6)});
-            left: 50%;
         }
 
         &__blob-base {
@@ -322,7 +264,6 @@
         }
 
         &__card {
-            left: 50%;
             bottom: u(-3);
             width: min(220px, u(55));
             height: min(260px, u(65));
@@ -330,10 +271,10 @@
             transform: translateX(-50%) rotate(var(--rotation, 0deg)) translateY(u(-54));
 
             &--active {
+                bottom: u(8);
                 width: min(258px, u(64.5));
                 height: min(318px, u(79.5));
                 margin-left: 0;
-                bottom: u(8);
                 transform: translateX(-50%) translateY(u(-38));
             }
         }
@@ -341,16 +282,16 @@
         &__arrow {
             top: auto;
             bottom: u(6);
-            transform: none;
             left: calc(50% - #{u(34)});
             right: calc(50% - #{u(34)});
             width: u(15);
             height: u(15);
-            max-width: 60px;
-            max-height: 60px;
             min-width: 48px;
             min-height: 48px;
+            max-width: 60px;
+            max-height: 60px;
             padding: 0;
+            transform: none;
 
             &--prev {
                 right: auto;
@@ -370,11 +311,10 @@
         }
 
         &__label {
-            left: 50%;
             top: auto;
             bottom: calc(#{u(46)} + 4px);
-            transform: translate(-50%, 50%);
             padding: 6px $spacing-sm;
+            transform: translate(-50%, 50%);
         }
     }
 }

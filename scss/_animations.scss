@@ -6,27 +6,24 @@
     100%     { font-family: $font-display-2; }
 }
 
-.hero__letter {
-    font-family: $font-display-1;
-    animation: name-font-wave 16.3s steps(1) infinite;
-    animation-delay: calc(var(--letter-index) * 0.6s);
-}
-
 @keyframes blob-pulse {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
-    20% {
+
+    20%, 80% {
         transform: translate(-50%, -50%) scale(1.08);
         opacity: 0.85;
     }
+
     40%, 60% {
         transform: translate(-50%, -50%) scale(1.15);
         opacity: 0.7;
     }
-    80% {
-        transform: translate(-50%, -50%) scale(1.08);
-        opacity: 0.85;
-    }
+}
+
+@keyframes avatar-reveal {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
