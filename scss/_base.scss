@@ -1,5 +1,33 @@
 @use "variables" as *;
 
+// Nura no está en Google Fonts: se sirve desde el proyecto
+@font-face {
+    font-family: 'Nura';
+    src: url('../assets/fonts/Nura.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
 body {
-    background-color: $color-white;
+    --page-bg: #{$color-white};
+    background-color: var(--page-bg);
+
+    // Páginas secundarias: fondo blanco puro
+    &.page--secondary {
+        --page-bg: #{$color-white-pure};
+    }
+}
+
+// Las páginas secundarias sí tienen scroll: el contenido crece hacia abajo
+.page--secondary {
+    .viewport-container {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    .page-wrapper {
+        height: auto;
+        min-height: 1016px;
+    }
 }

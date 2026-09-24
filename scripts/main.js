@@ -5,13 +5,21 @@
     const wrapper = document.querySelector('.page-wrapper');
     if (!wrapper) return;
 
+    // En páginas secundarias se usa zoom para que el alto escalado cuente en el scroll
+    const useZoom = document.body.classList.contains('page--secondary');
+
     function fitToViewport() {
         if (window.innerWidth <= MOBILE_BREAKPOINT) {
             wrapper.style.transform = 'none';
+            wrapper.style.zoom = '';
             return;
         }
         const scale = window.innerWidth / DESIGN_WIDTH;
-        wrapper.style.transform = `scale(${scale})`;
+        if (useZoom) {
+            wrapper.style.zoom = scale;
+        } else {
+            wrapper.style.transform = `scale(${scale})`;
+        }
     }
 
     fitToViewport();

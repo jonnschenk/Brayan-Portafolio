@@ -1,7 +1,7 @@
 @use "../variables" as *;
 
 .about {
-    padding: 30px 80px 0;
+    padding: 30px 80px 48px;
 }
 
 .about-hero {
@@ -69,6 +69,467 @@
     }
 }
 
+.footprint {
+    margin-top: 32px;
+    padding: 24px;
+    height: 572px;
+    border: 1px solid $color-gray-light;
+    border-radius: $radius-sm;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-top: 3px;
+        padding-bottom: 31px;
+        border-bottom: 1px solid $color-gray-light;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-title;
+        font-size: 24px;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-family: $font-body;
+        font-size: 16px;
+        line-height: 1.4;
+        color: $color-gray-dark;
+    }
+
+    &__body {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 66px;
+    }
+
+    // El PNG incluye las etiquetas de los países; se muestra a 814×362 como en el diseño
+    &__map {
+        flex-shrink: 0;
+        width: 814px;
+        height: auto;
+        margin-left: 6px;
+    }
+}
+
+.languages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 217px;
+    margin: 25px 16px 0 auto;
+    padding: 24px 24px 32px;
+    border: 1px solid $color-accent;
+    border-radius: $radius-sm;
+    background-color: #FBFFF1;
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid $color-accent;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-body;
+        font-size: 20px;
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        color: $color-gray-dark;
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-family: $font-body;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: 24px;
+        font-family: $font-body;
+        font-size: 14px;
+    }
+
+    &__flag {
+        width: 26px;
+        height: auto;
+        margin: 0 10px 0 3px;
+    }
+
+    &__name {
+        color: $color-gray-dark;
+    }
+
+    &__level {
+        color: #B0B0B0;
+    }
+}
+
+.experience {
+    margin-top: 48px;
+    padding: 32px 32px 32px;
+    border: 1px solid $color-gray-light;
+    border-radius: $radius-sm;
+
+    &__title {
+        margin: 0;
+        padding: 2px 0 23px;
+        border-bottom: 1px solid $color-gray-light;
+        font-family: $font-title;
+        font-size: 24px;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__toggle {
+        gap: 10px;
+        height: 44px;
+        margin: 24px auto 0;
+        padding: 0 14px;
+        border-radius: $radius-full;
+        font-size: $font-size-label-lg;
+    }
+
+    &__toggle-icon {
+        width: 24px;
+        height: 24px;
+        transition: transform $transition-hover;
+
+        [aria-expanded="true"] > & {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+// .btn es inline-flex; el botón se centra como bloque
+.experience__toggle {
+    display: flex;
+}
+
+.job {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 31px 0;
+
+    &:first-child {
+        padding-top: 23px;
+    }
+
+    &[hidden] {
+        display: none;
+    }
+
+    // La línea divisoria arranca a la altura del texto, no del logo
+    &::after {
+        content: '';
+        position: absolute;
+        left: 77px;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: $color-gray-light;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        align-self: flex-start;
+
+        img {
+            max-width: none;
+        }
+    }
+
+    &__info {
+        flex-shrink: 0;
+        width: 185px;
+        font-family: $font-body;
+        color: $color-black;
+    }
+
+    &__company {
+        margin: 0;
+        font-size: 16px;
+        font-weight: $font-weight-semibold;
+        line-height: 20px;
+    }
+
+    &__role {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__dates {
+        display: flex;
+        gap: 10px;
+        margin: 14px 0 0;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+
+    &__desc {
+        margin: 0;
+        font-family: $font-body;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+    margin-top: 18px;
+    padding-top: 17px;
+
+    // Línea de tiempo con flecha al final
+    &::before {
+        content: '';
+        position: absolute;
+        top: 6.25px;
+        left: 0;
+        right: 0;
+        height: 1.5px;
+        background-color: $color-lavender;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 1.5px;
+        right: -2px;
+        border-top: 5.5px solid transparent;
+        border-bottom: 5.5px solid transparent;
+        border-right: 10.5px solid $color-lavender;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 146px;
+        font-family: $font-body;
+        text-align: center;
+        white-space: nowrap;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -17px;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            margin-left: -7px;
+            border-radius: $radius-full;
+            background-color: $color-pink;
+        }
+    }
+
+    &__role {
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+
+    &__dates {
+        display: flex;
+        gap: 5px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #B0B0B0;
+    }
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 48px;
+    margin-top: 48px;
+}
+
+.info-card {
+    padding: 24px;
+    border: 1px solid $color-gray-light;
+    border-radius: $radius-sm;
+
+    &__title {
+        margin: 0;
+        padding: 3px 0 22px;
+        border-bottom: 1px solid $color-gray-light;
+        font-family: $font-title;
+        font-size: 24px;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        color: $color-black;
+    }
+}
+
+.entry {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 23px 0;
+    font-family: $font-body;
+    color: $color-gray-dark;
+
+    &:last-child {
+        padding-bottom: 7px;
+    }
+
+    // Divisor entre entradas, alineado con el texto
+    &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 87px;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: $color-gray-light;
+    }
+
+    &__logo {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+    }
+
+    &__body {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__name {
+        margin: 0;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        line-height: 20px;
+    }
+
+    &__subject {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__dates {
+        display: flex;
+        gap: 10px;
+        margin: 12px 0 0;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__sub {
+        position: relative;
+        margin-top: 22px;
+
+        // Punto de la línea que une el título principal con el diplomado
+        &::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -57.5px;
+            width: 11px;
+            height: 11px;
+            border-radius: $radius-full;
+            background-color: $color-lavender;
+        }
+
+        // Tramo desde el logo hasta el punto (el título principal ocupa 4 líneas)
+        &::after {
+            content: '';
+            position: absolute;
+            top: -58px;
+            left: -52.75px;
+            width: 1.5px;
+            height: 62px;
+            background-color: $color-lavender;
+        }
+    }
+}
+
+.skills {
+    padding-bottom: 32px;
+
+    &__group {
+        padding-top: 24px;
+
+        & + & {
+            padding-top: 30px;
+        }
+    }
+
+    &__heading {
+        margin: 0 0 16px;
+        font-family: $font-body;
+        font-size: 16px;
+        font-weight: $font-weight-semibold;
+        line-height: 20px;
+        color: $color-gray-dark;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-gray-dark;
+
+    &__icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: $radius-full;
+        background: center / 20px no-repeat;
+
+        &--teal { background-color: #CEEEF3; }
+        &--pink { background-color: #FCE6FF; }
+        &--lavender { background-color: #DFD2FF; }
+        &--lemon { background-color: #E5FCA9; }
+        &--orange { background-color: #F7E7D0; }
+    }
+}
+
 // Móvil provisional (sin diseño aún): todo en una columna
 @media (max-width: #{$breakpoint-tablet - 1px}) {
     .about {
@@ -107,5 +568,99 @@
             font-size: 16px;
             line-height: 26px;
         }
+    }
+
+    .footprint {
+        height: auto;
+        padding: $spacing-md $spacing-sm;
+
+        &__header {
+            padding-top: 0;
+            padding-bottom: $spacing-md;
+        }
+
+        &__body {
+            flex-direction: column;
+            gap: $spacing-lg;
+            padding-top: $spacing-md;
+        }
+
+        &__map {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+
+    .languages {
+        width: 100%;
+        margin: 0;
+    }
+
+    .experience {
+        padding: $spacing-md $spacing-sm;
+    }
+
+    .job {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 12px 16px;
+        padding: $spacing-md 0;
+
+        &:first-child {
+            padding-top: $spacing-md;
+        }
+
+        &::after {
+            left: 0;
+        }
+
+        &__info {
+            width: auto;
+            flex: 1;
+        }
+
+        &__desc {
+            width: 100%;
+        }
+    }
+
+    // Sin diseño móvil aún: la línea de tiempo pasa a vertical
+    .timeline {
+        flex-direction: column;
+        gap: $spacing-sm;
+        width: 100%;
+        margin-top: 0;
+        padding: 0 0 0 28px;
+
+        &::before {
+            top: 7px;
+            bottom: 7px;
+            left: 6.25px;
+            right: auto;
+            width: 1.5px;
+            height: auto;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &__item {
+            align-items: flex-start;
+            width: auto;
+            text-align: left;
+
+            &::before {
+                top: 3px;
+                left: -28px;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+        margin-top: $spacing-lg;
     }
 }
