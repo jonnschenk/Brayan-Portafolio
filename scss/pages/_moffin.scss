@@ -1,0 +1,246 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+$color-moffin: #143054;
+$color-graphite: #262628;
+
+.moffin {
+    padding: 60px 80px 72px;
+}
+
+.moffin-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 200px;
+        border-radius: $radius-full;
+        background-color: $color-moffin;
+        box-shadow: 0 4px 8px rgba($color-black, 0.2);
+    }
+
+    &__logo-img {
+        width: 138px;
+        height: 138px;
+    }
+
+    &__title {
+        margin-top: 24px;
+        font-family: $font-body;
+        font-size: $font-size-hero;
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__subtitle {
+        margin-top: 8px;
+        font-family: $font-body;
+        font-size: 40px;
+        line-height: 1.2;
+        color: $color-gray-dark;
+    }
+}
+
+.moffin-section {
+    margin-top: 60px;
+
+    & + & {
+        margin-top: 120px;
+    }
+
+    &__title {
+        margin-bottom: $spacing-md;
+        font-family: $font-body;
+        font-size: 40px;
+        font-weight: $font-weight-semibold;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__stack {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+        margin-bottom: $spacing-xl;
+    }
+
+    &__columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: $spacing-md;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+}
+
+.ds-panel {
+    --panel-title: #{$color-black};
+    --panel-text: #{$color-gray-dark};
+    --panel-divider: #{$color-gray-light};
+
+    padding: $spacing-md;
+    border: 1px solid $color-gray-light;
+    border-radius: 12px;
+    background-color: $color-white-pure;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: $spacing-md;
+        border-bottom: 1px solid var(--panel-divider);
+    }
+
+    &__count {
+        font-family: $font-title;
+        font-size: 96px;
+        line-height: 1;
+        color: var(--panel-title);
+    }
+
+    &__title {
+        @include section-title;
+        color: var(--panel-title);
+    }
+
+    &__text {
+        font-family: $font-body;
+        font-size: $font-size-label;
+        line-height: 20px;
+        color: var(--panel-text);
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: $spacing-lg;
+    }
+
+    &--teal {
+        --panel-title: #{$color-white-pure};
+        --panel-text: #{$color-gray-light};
+        background-color: $color-teal;
+    }
+
+    &--dark {
+        --panel-title: #{$color-white};
+        --panel-text: #{$color-gray-light};
+        border-color: $color-graphite;
+        background-color: $color-graphite;
+    }
+
+    &--lavender {
+        --panel-title: #{$color-white-pure};
+        --panel-text: #{$color-white-pure};
+        --panel-divider: #{rgba($color-white-pure, 0.7)};
+        border-color: $color-lavender;
+        background-color: $color-lavender;
+    }
+
+    &--accent {
+        border-color: $color-accent;
+        background-color: $color-accent;
+    }
+
+    &--pink {
+        border-color: $color-pink;
+        background-color: $color-pink;
+
+        .ds-panel__header {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+    }
+}
+
+@include mobile {
+    .moffin {
+        flex: 1;
+        min-height: 0;
+        padding: $spacing-md $spacing-md $spacing-xl;
+        overflow-y: auto;
+    }
+
+    .moffin-hero {
+        &__logo {
+            width: 124px;
+            height: 124px;
+        }
+
+        &__logo-img {
+            width: 86px;
+            height: 86px;
+        }
+
+        &__title {
+            margin-top: 28px;
+            font-size: 40px;
+        }
+
+        &__subtitle {
+            margin-top: 12px;
+            font-size: 36px;
+        }
+    }
+
+    .moffin-section {
+        margin-top: 40px;
+
+        & + & {
+            margin-top: 48px;
+        }
+
+        &__title {
+            font-size: $font-size-label-lg;
+        }
+
+        &__stack {
+            gap: $spacing-lg;
+            margin-bottom: $spacing-lg;
+        }
+
+        &__columns {
+            grid-template-columns: minmax(0, 1fr);
+            gap: $spacing-lg;
+        }
+
+        &__column {
+            gap: $spacing-lg;
+        }
+    }
+
+    .ds-panel {
+        padding: $spacing-lg $spacing-md $spacing-md;
+        border-radius: $radius-sm;
+
+        &__header {
+            gap: 16px;
+            padding-bottom: $spacing-sm;
+        }
+
+        &__count {
+            font-size: 64px;
+        }
+
+        &__title {
+            font-size: $font-size-label;
+        }
+
+        &__img {
+            margin-top: $spacing-sm;
+        }
+    }
+}

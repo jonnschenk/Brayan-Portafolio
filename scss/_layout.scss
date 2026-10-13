@@ -240,7 +240,18 @@
 }
 
 @include mobile {
-    .page--secondary .site-header--mobile {
+    .site-header--minimal {
+        flex-shrink: 0;
+        padding: 0 $spacing-md;
+
+        &::after {
+            left: $spacing-md;
+            right: $spacing-md;
+        }
+    }
+
+    .page--secondary .site-header--mobile,
+    .page--secondary .site-header--minimal {
         .site-header__cta {
             display: none;
         }
