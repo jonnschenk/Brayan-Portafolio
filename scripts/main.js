@@ -1,15 +1,17 @@
 (function () {
     const DESIGN_WIDTH = 1382;
     const MOBILE_BREAKPOINT = 767;
+    const HOME_PORTRAIT_TABLET = '(min-width: 768px) and (max-width: 1099px) and (orientation: portrait)';
 
     const wrapper = document.querySelector('.page-wrapper');
     if (!wrapper) return;
 
     const useZoom = document.body.classList.contains('page--secondary');
     const fluidUntil = Number(document.body.dataset.fluidUntil) || MOBILE_BREAKPOINT;
+    const homePortraitTablet = document.body.classList.contains('page--home') && window.matchMedia(HOME_PORTRAIT_TABLET);
 
     function fitToViewport() {
-        if (window.innerWidth <= fluidUntil) {
+        if (window.innerWidth <= fluidUntil || (homePortraitTablet && homePortraitTablet.matches)) {
             wrapper.style.transform = 'none';
             wrapper.style.zoom = '';
             return;

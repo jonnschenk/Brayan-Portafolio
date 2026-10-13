@@ -22,7 +22,7 @@
         opacity: 0;
     }
 
-    @include mobile {
+    @include mobile-or-home-portrait {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -197,7 +197,7 @@
         display: none;
     }
 
-    @include mobile {
+    @include mobile-or-home-portrait {
         &--desktop {
             display: none;
         }

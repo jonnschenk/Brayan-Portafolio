@@ -12,6 +12,25 @@
     }
 }
 
+// Portrait tablets show the home with the mobile layout instead of the scaled desktop one.
+@mixin home-portrait-tablet {
+    @media (min-width: $breakpoint-tablet) and (max-width: 1099px) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin mobile-or-home-portrait {
+    @include mobile {
+        @content;
+    }
+
+    @include home-portrait-tablet {
+        .page--home & {
+            @content;
+        }
+    }
+}
+
 @mixin pressed {
     @media (hover: hover) {
         &:hover {

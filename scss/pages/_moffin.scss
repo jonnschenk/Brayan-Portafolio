@@ -4,6 +4,27 @@
 $color-moffin: #143054;
 $color-graphite: #262628;
 
+// Figma: after delay 1200ms, smart animate 1000ms, "ease in and out back".
+// 4.4s cycle = hold 1.2s → swap 1s → hold 1.2s → swap back 1s.
+@keyframes moffin-logo-swap {
+    0%, 27.27% {
+        background-color: $color-moffin;
+        color: $color-white-pure;
+        animation-timing-function: cubic-bezier(0.7, -0.4, 0.4, 1.4);
+    }
+
+    50%, 77.27% {
+        background-color: $color-white-pure;
+        color: $color-moffin;
+        animation-timing-function: cubic-bezier(0.7, -0.4, 0.4, 1.4);
+    }
+
+    100% {
+        background-color: $color-moffin;
+        color: $color-white-pure;
+    }
+}
+
 .moffin {
     padding: 60px 80px 72px;
 }
@@ -20,9 +41,16 @@ $color-graphite: #262628;
         justify-content: center;
         width: 200px;
         height: 200px;
+        border: 1px solid $color-moffin;
         border-radius: $radius-full;
         background-color: $color-moffin;
+        color: $color-white-pure;
         box-shadow: 0 4px 8px rgba($color-black, 0.2);
+        animation: moffin-logo-swap 4.4s infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
     }
 
     &__logo-img {
