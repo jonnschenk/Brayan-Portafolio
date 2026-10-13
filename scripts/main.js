@@ -80,11 +80,18 @@
         }
     });
 
+    dropdown.addEventListener('touchstart', () => {}, { passive: true });
+
     dropdown.querySelectorAll('.site-header__menu-link').forEach((link) => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
-            setOpen(false);
             window.navigateWithFade(link.getAttribute('href'));
         });
+    });
+
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            setOpen(false);
+        }
     });
 })();

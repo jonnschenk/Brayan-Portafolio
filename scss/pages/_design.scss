@@ -1,0 +1,124 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+$color-moffin: #143054;
+$color-clara: #262628;
+
+.design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    height: 688px;
+
+    &__title {
+        font-family: $font-body;
+        font-size: $font-size-title;
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__list {
+        display: flex;
+        gap: 40px;
+    }
+}
+
+.ds-card {
+    display: flex;
+    flex-direction: column;
+    width: 444px;
+    border: 1px solid $color-gray-muted;
+    border-radius: 12px;
+    background-color: $color-white-pure;
+    overflow: hidden;
+
+    &__banner {
+        display: flex;
+        align-items: center;
+        height: 140px;
+        padding: 0 $spacing-sm;
+
+        &--moffin {
+            background-color: $color-moffin;
+        }
+
+        &--clara {
+            background-color: $color-clara;
+        }
+    }
+
+    &__logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        padding: $spacing-md;
+    }
+
+    &__title {
+        font-family: $font-body;
+        font-size: $font-size-label-lg;
+        font-weight: $font-weight-semibold;
+        line-height: 1.2;
+        color: $color-black;
+    }
+
+    &__text {
+        margin-top: 12px;
+        font-family: $font-body;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-black;
+    }
+
+    &__btn {
+        height: 32px;
+        margin-top: 40px;
+        border-radius: $radius-full;
+    }
+}
+
+@include mobile {
+    .design {
+        flex: 1;
+        justify-content: flex-start;
+        gap: $spacing-md;
+        min-height: 0;
+        height: auto;
+        padding: 25px $spacing-md $spacing-lg;
+        overflow-y: auto;
+
+        &__title {
+            font-size: $font-size-label-lg;
+        }
+
+        &__list {
+            flex-direction: column;
+            gap: $spacing-md;
+            width: 100%;
+        }
+    }
+
+    .ds-card {
+        width: 100%;
+
+        &__banner {
+            height: 104px;
+        }
+
+        &__logo {
+            width: 64px;
+            height: 64px;
+        }
+
+        &__btn {
+            margin-top: $spacing-lg;
+        }
+    }
+}

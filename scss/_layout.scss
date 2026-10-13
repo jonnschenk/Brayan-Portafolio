@@ -188,7 +188,7 @@
         color: $color-black;
         transition: background-color $transition-hover, color $transition-hover;
 
-        &:hover {
+        @include pressed {
             background-color: $color-lavender;
         }
     }

@@ -8,14 +8,15 @@
 .about-hero {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 80px;
     height: 500px;
 
     &__avatar {
         position: relative;
         flex-shrink: 0;
-        width: 360px;
-        height: 360px;
+        width: 189.22px;
+        height: 189.22px;
         border-radius: $radius-full;
         overflow: hidden;
     }
@@ -495,28 +496,6 @@
         flex-shrink: 0;
         width: 32px;
         height: 32px;
-        border-radius: $radius-full;
-        background: center / 20px no-repeat;
-
-        &--teal {
-            background-color: $color-teal-soft;
-        }
-
-        &--pink {
-            background-color: $color-pink-soft;
-        }
-
-        &--lavender {
-            background-color: $color-lavender-soft;
-        }
-
-        &--lemon {
-            background-color: $color-lemon-soft;
-        }
-
-        &--orange {
-            background-color: $color-orange-soft;
-        }
     }
 }
 
@@ -550,14 +529,6 @@
             width: 160px;
             height: 160px;
             margin-top: 32px;
-        }
-
-        &__avatar-img {
-            transform: none;
-        }
-
-        &__avatar-photo {
-            display: none;
         }
 
         &__text {
@@ -657,7 +628,17 @@
         padding-bottom: 12px;
 
         &__toggle {
+            gap: 6px;
+            width: 134px;
+            height: 32px;
             margin-top: $spacing-sm;
+            padding: 0;
+            font-size: $font-size-label;
+        }
+
+        &__toggle-icon {
+            width: 20px;
+            height: 20px;
         }
     }
 
