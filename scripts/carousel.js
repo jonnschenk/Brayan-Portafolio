@@ -93,32 +93,38 @@
         clearInterval(autoplayTimer);
     }
 
+    function resumeAutoplay() {
+        if (!carousel.matches(':hover')) startAutoplay();
+    }
+
     cards.forEach((card, i) => {
         card.setAttribute('aria-label', sections[i].name);
 
         card.addEventListener('click', (event) => {
+            if (i === activeIndex && window.isModifiedClick(event)) return;
             event.preventDefault();
 
             if (i === activeIndex) {
                 window.navigateWithFade(sections[i].href);
             } else {
                 goTo(i);
-                startAutoplay();
+                resumeAutoplay();
             }
         });
     });
 
     prevBtn.addEventListener('click', () => {
         goTo(activeIndex - 1);
-        startAutoplay();
+        resumeAutoplay();
     });
 
     nextBtn.addEventListener('click', () => {
         goTo(activeIndex + 1);
-        startAutoplay();
+        resumeAutoplay();
     });
 
     label.addEventListener('click', (event) => {
+        if (window.isModifiedClick(event)) return;
         event.preventDefault();
         window.navigateWithFade(sections[activeIndex].href);
     });
