@@ -8,7 +8,7 @@ Sitio web de portafolio para **Brayan Ramírez**, Product & Content Designer. Es
 ![Vista previa del portafolio](docs/preview.png)
 -->
 
-🔗 **Demo:** [jonnschenk.github.io/Brayan](https://jonnschenk.github.io/Brayan/)
+🔗 **Demo:** [jonnschenk.github.io/Designer-Brayan](https://jonnschenk.github.io/Designer-Brayan/)
 
 ---
 
@@ -82,8 +82,8 @@ Mi trabajo consistió en convertir el diseño de Figma en un sitio fiel al origi
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/jonnschenk/Brayan.git
-   cd Brayan
+   git clone https://github.com/jonnschenk/Designer-Brayan.git
+   cd Designer-Brayan
    ```
 2. Abre `index.html` con un servidor local, por ejemplo la extensión **Live Server** de VS Code o:
    ```bash
